@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everett Brothers — Creative Direction</title>
+  <meta name="description" content="Social media strategy, creative direction, and content for brands. NYC-based." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Libre+Franklin:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:   #F7F7F5;
+      --ink:     #111110;
+      --nav-h:   60px;
+      --display: 'Archivo', sans-serif;
+      --body:    'Libre Franklin', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--body);
+      font-weight: 300;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--ink);
+    }
+    .video-wrap video { height: 100%; width: auto; object-fit: cover; }
+    @media (min-aspect-ratio: 9/16) {
+      .video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(17,17,16,0.50) 0%,
+        rgba(17,17,16,0.08) 30%,
+        rgba(17,17,16,0.08) 70%,
+        rgba(17,17,16,0.62) 100%
+      );
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 10; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 44px;
+    }
+    .nav-name {
+      font-family: var(--display);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--white); text-decoration: none; opacity: 0.92;
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 10px; font-weight: 300;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--white); text-decoration: none;
+      opacity: 0.5; transition: opacity 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      position: fixed; inset: 0; z-index: 5;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      padding-bottom: 52px; text-align: center; pointer-events: none;
+    }
+    .hero-location {
+      font-family: var(--body);
+      font-size: 9px; font-weight: 300;
+      letter-spacing: 0.38em; text-transform: uppercase;
+      color: rgba(247,247,245,0.5); margin-bottom: 18px;
+    }
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(34px, 5.5vw, 58px); font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--white); line-height: 1.02; margin-bottom: 22px;
+    }
+    .hero-rule { width: 24px; height: 0.5px; background: rgba(247,247,245,0.35); margin: 0 auto 20px; }
+    .hero-tagline {
+      font-family: var(--body);
+      font-size: 9px; font-weight: 300;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: rgba(247,247,245,0.5);
+    }
+
+    /* ── MOBILE ── */
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 6px; }
+    .hamburger span { display: block; width: 20px; height: 0.5px; background: var(--white); opacity: 0.75; }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 20;
+      background: rgba(17,17,16,0.97);
+      flex-direction: column; align-items: center; justify-content: center; gap: 44px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--display);
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--white); text-decoration: none; opacity: 0.8;
+    }
+    .mobile-close { position: absolute; top: 18px; right: 40px; background: none; border: none; color: var(--white); font-size: 22px; cursor: pointer; opacity: 0.4; font-family: var(--body); font-weight: 300; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    nav   { animation: fadeUp 1s ease 0.2s both; }
+    .hero { animation: fadeUp 1.1s ease 0.5s both; }
+    @media (prefers-reduced-motion: reduce) { nav, .hero { animation: none; } }
+  </style>
+</head>
+<body>
+
+  <div class="video-wrap">
+    <video src="background.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  </div>
+  <div class="video-overlay"></div>
+
+  <nav>
+    <a href="index.html" class="nav-name">Everett Brothers</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="work.html" onclick="closeMenu()">Work</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <div class="hero" aria-label="Site introduction">
+    <p class="hero-location">New York City</p>
+    <h1 class="hero-name">Everett Brothers</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Strategy &nbsp;&middot;&nbsp; Direction &nbsp;&middot;&nbsp; Content</p>
+  </div>
+
+  <script>
+    function openMenu()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+  </script>
+</body>
+</html>

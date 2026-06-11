@@ -11,7 +11,8 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --white: #F7F7F5; --ink: #111110;
-      --mid: rgba(17,17,16,0.48); --hairline: rgba(17,17,16,0.1);
+      --mid: rgba(17,17,16,0.48); --soft: rgba(17,17,16,0.62);
+      --hairline: rgba(17,17,16,0.1);
       --nav-h: 60px;
       --display: 'Archivo', sans-serif; --body: 'Libre Franklin', sans-serif;
     }
@@ -32,34 +33,40 @@
     .mobile-menu a { font-family: var(--display); font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.7; }
     .mobile-close { position: absolute; top: 18px; right: 40px; background: none; border: none; color: var(--ink); font-size: 22px; cursor: pointer; opacity: 0.35; font-family: var(--body); font-weight: 300; }
 
-    main { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--nav-h) + 56px) 44px 72px; max-width: 760px; margin: 0 auto; }
+    main { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: calc(var(--nav-h) + 64px) 44px 72px; max-width: 820px; margin: 0 auto; }
 
     .page-eyebrow { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.36em; text-transform: uppercase; color: var(--mid); margin-bottom: 24px; }
-    .page-title { font-family: var(--display); font-size: clamp(32px, 5vw, 48px); font-weight: 500; letter-spacing: 0.01em; color: var(--ink); line-height: 1.12; margin-bottom: 28px; }
-    .page-rule { width: 24px; height: 0.5px; background: rgba(17,17,16,0.2); margin-bottom: 48px; }
+    .page-title { font-family: var(--display); font-size: clamp(34px, 5.5vw, 52px); font-weight: 500; letter-spacing: 0.01em; color: var(--ink); line-height: 1.1; margin-bottom: 28px; }
+    .page-rule { width: 24px; height: 0.5px; background: rgba(17,17,16,0.2); margin-bottom: 44px; }
 
-    .lede { font-family: var(--body); font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--mid); max-width: 440px; margin-bottom: 56px; }
+    .bio { font-family: var(--body); font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.85; color: var(--soft); max-width: 580px; margin-bottom: 16px; }
+    .bio strong { color: var(--ink); font-weight: 400; }
+    .bio-note { font-family: var(--body); font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--mid); max-width: 580px; margin-bottom: 56px; }
 
-    .contact-block { display: flex; flex-direction: column; gap: 40px; }
+    .contact-block { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 44px; }
     .contact-item { padding-bottom: 24px; border-bottom: 0.5px solid var(--hairline); }
     .contact-label { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(17,17,16,0.35); margin-bottom: 14px; }
-    .contact-value { font-family: var(--display); font-size: clamp(22px, 4vw, 30px); font-weight: 400; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+    .contact-value { font-family: var(--display); font-size: clamp(18px, 3vw, 24px); font-weight: 400; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; display: inline-block; transition: opacity 0.2s; }
     a.contact-value:hover { opacity: 0.55; }
-    .contact-note { font-family: var(--body); font-size: 12px; font-weight: 300; color: rgba(17,17,16,0.4); margin-top: 12px; line-height: 1.7; }
+    .contact-sub { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--mid); margin-top: 10px; line-height: 1.7; }
+
+    .request-note { font-family: var(--body); font-size: 12px; font-weight: 300; letter-spacing: 0.04em; color: rgba(17,17,16,0.4); margin-top: 48px; padding-top: 28px; border-top: 0.5px solid var(--hairline); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     .page-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
     .page-title { animation: fadeUp 0.7s ease 0.18s both; }
     .page-rule { animation: fadeUp 0.7s ease 0.26s both; }
-    .lede { animation: fadeUp 0.7s ease 0.32s both; }
+    .bio, .bio-note { animation: fadeUp 0.7s ease 0.32s both; }
     .contact-block { animation: fadeUp 0.7s ease 0.4s both; }
-    @media (prefers-reduced-motion: reduce) { .page-eyebrow, .page-title, .page-rule, .lede, .contact-block { animation: none; } }
+    .request-note { animation: fadeUp 0.7s ease 0.48s both; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       nav { padding: 0 24px; }
       main { padding-left: 24px; padding-right: 24px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
+      .contact-block { grid-template-columns: 1fr; gap: 28px; }
     }
   </style>
 </head>
@@ -87,19 +94,30 @@
     <h1 class="page-title">Let's talk.</h1>
     <div class="page-rule"></div>
 
-    <p class="lede">For new projects, collaborations, or just to start a conversation — reach out directly. Detailed case studies available on request.</p>
+    <p class="bio">A creative and social media leader with <strong>13+ years</strong> and <strong>3B+ video views</strong> building culture-driving content for Billboard, Madison Square Garden, Sphere, the Rockettes, and Panasonic. The work blends storytelling, creator collaboration, and distribution strategy into content that drives measurable growth.</p>
+    <p class="bio-note">New York–based, with roots in New Jersey. Available for creative direction, social and content strategy, and brand partnership engagements — remote or on-site.</p>
 
     <div class="contact-block">
       <div class="contact-item">
         <p class="contact-label">Email</p>
         <a href="mailto:everettbrothers@me.com" class="contact-value">everettbrothers@me.com</a>
       </div>
+      <div class="contact-item">
+        <p class="contact-label">Phone</p>
+        <a href="tel:+17326705222" class="contact-value">732.670.5222</a>
+      </div>
       <div class="contact-item" style="border-bottom:none;">
         <p class="contact-label">Based in</p>
         <span class="contact-value">New York City</span>
-        <p class="contact-note">Available for remote and on-site work.</p>
+      </div>
+      <div class="contact-item" style="border-bottom:none;">
+        <p class="contact-label">Connect</p>
+        <a href="https://linkedin.com/in/dancelife" target="_blank" rel="noopener" class="contact-value">LinkedIn ↗</a>
       </div>
     </div>
+
+    <p class="request-note">Detailed case studies and portfolio available on request.</p>
+
   </main>
 
   <script>

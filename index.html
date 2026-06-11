@@ -29,7 +29,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── VIDEO ── */
+    /* ── VIDEO ──
+       The video keeps its true 9:16 proportions and is centered.
+       On phones (tall screens) it naturally fills edge to edge.
+       On desktop (wide screens) it sits as a centered column with
+       clean negative space on the sides — nothing stretched or cropped. */
     .video-wrap {
       position: fixed;
       inset: 0;
@@ -40,9 +44,20 @@
       overflow: hidden;
       background: var(--ink);
     }
-    .video-wrap video { height: 100%; width: auto; object-fit: cover; }
-    @media (min-aspect-ratio: 9/16) {
-      .video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+    .video-wrap video {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    /* On portrait / narrow screens (phones), fill the screen fully. */
+    @media (max-aspect-ratio: 9/16) {
+      .video-wrap video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     .video-overlay {

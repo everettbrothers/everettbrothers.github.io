@@ -6,12 +6,13 @@
   <title>Work — Everett Brothers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Libre+Franklin:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Libre+Franklin:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --white: #F7F7F5; --ink: #111110;
-      --mid: rgba(17,17,16,0.48); --hairline: rgba(17,17,16,0.1);
+      --mid: rgba(17,17,16,0.48); --soft: rgba(17,17,16,0.62);
+      --hairline: rgba(17,17,16,0.1);
       --nav-h: 60px;
       --display: 'Archivo', sans-serif; --body: 'Libre Franklin', sans-serif;
     }
@@ -32,47 +33,80 @@
     .mobile-menu a { font-family: var(--display); font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.7; }
     .mobile-close { position: absolute; top: 18px; right: 40px; background: none; border: none; color: var(--ink); font-size: 22px; cursor: pointer; opacity: 0.35; font-family: var(--body); font-weight: 300; }
 
-    main { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 100px; max-width: 760px; margin: 0 auto; padding-left: 44px; padding-right: 44px; }
+    main { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 100px; max-width: 820px; margin: 0 auto; padding-left: 44px; padding-right: 44px; }
 
-    .page-header { margin-bottom: 80px; }
+    /* HEADER */
+    .page-header { margin-bottom: 64px; }
     .page-eyebrow { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.36em; text-transform: uppercase; color: var(--mid); margin-bottom: 28px; }
-    .page-title { font-family: var(--display); font-size: clamp(32px, 5vw, 48px); font-weight: 500; letter-spacing: 0.01em; color: var(--ink); line-height: 1.12; margin-bottom: 28px; }
-    .page-rule { width: 24px; height: 0.5px; background: rgba(17,17,16,0.22); }
+    .page-title { font-family: var(--display); font-size: clamp(34px, 5.5vw, 54px); font-weight: 500; letter-spacing: 0.005em; color: var(--ink); line-height: 1.08; margin-bottom: 28px; }
+    .page-lede { font-family: var(--body); font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.75; color: var(--soft); max-width: 560px; }
 
-    .section-label { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.36em; text-transform: uppercase; color: rgba(17,17,16,0.3); padding-bottom: 14px; border-bottom: 0.5px solid var(--hairline); }
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.5px solid var(--hairline); border-bottom: 0.5px solid var(--hairline); margin-bottom: 80px; }
+    .stat { padding: 32px 0; }
+    .stat:not(:last-child) { border-right: 0.5px solid var(--hairline); }
+    .stat-num { font-family: var(--display); font-size: clamp(28px, 4vw, 40px); font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-family: var(--body); font-size: 10px; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); line-height: 1.5; padding-right: 12px; }
 
-    .clients { margin-bottom: 72px; }
-    .client-row { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; border-bottom: 0.5px solid var(--hairline); gap: 16px; }
-    .client-name { font-family: var(--display); font-size: 19px; font-weight: 400; letter-spacing: 0.01em; color: var(--ink); }
-    .client-role { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid); text-align: right; flex-shrink: 0; }
+    /* SECTION LABEL */
+    .section-label { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.36em; text-transform: uppercase; color: rgba(17,17,16,0.3); padding-bottom: 14px; border-bottom: 0.5px solid var(--hairline); margin-bottom: 8px; }
 
-    .disciplines { margin-bottom: 72px; }
-    .disc-grid { display: grid; grid-template-columns: 1fr 1fr; border-left: 0.5px solid var(--hairline); border-top: 0.5px solid var(--hairline); }
-    .disc-item { padding: 28px; border-right: 0.5px solid var(--hairline); border-bottom: 0.5px solid var(--hairline); }
-    .disc-num { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.2em; color: rgba(17,17,16,0.28); margin-bottom: 14px; }
-    .disc-name { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 10px; }
-    .disc-desc { font-family: var(--body); font-size: 12px; font-weight: 300; line-height: 1.75; color: var(--mid); }
+    /* ENGAGEMENTS */
+    .engagements { margin-bottom: 80px; }
+    .eng-row { padding: 30px 0; border-bottom: 0.5px solid var(--hairline); display: grid; grid-template-columns: 1fr auto; gap: 20px 32px; align-items: start; }
+    .eng-title { font-family: var(--display); font-size: 23px; font-weight: 500; letter-spacing: 0.01em; color: var(--ink); margin-bottom: 6px; }
+    .eng-role { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--soft); line-height: 1.6; max-width: 440px; }
+    .eng-metric { font-family: var(--display); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); text-align: right; white-space: nowrap; padding-top: 4px; }
 
+    /* COLLABORATIONS */
+    .collabs { margin-bottom: 80px; }
+    .collab-names { font-family: var(--display); font-size: clamp(18px, 2.6vw, 24px); font-weight: 400; line-height: 1.5; color: var(--ink); letter-spacing: 0.01em; }
+    .collab-names span { color: rgba(17,17,16,0.3); }
+
+    /* BRANDS */
+    .brands { margin-bottom: 80px; }
+    .brands + .brands { margin-top: -44px; }
+    .brand-list { font-family: var(--display); font-size: clamp(15px, 2vw, 18px); font-weight: 400; line-height: 1.9; color: var(--soft); letter-spacing: 0.03em; }
+    .brand-list span { color: rgba(17,17,16,0.25); margin: 0 4px; }
+
+    /* CAPABILITIES */
+    .capabilities { margin-bottom: 80px; }
+    .cap-grid { display: grid; grid-template-columns: 1fr 1fr; border-left: 0.5px solid var(--hairline); border-top: 0.5px solid var(--hairline); }
+    .cap-item { padding: 28px; border-right: 0.5px solid var(--hairline); border-bottom: 0.5px solid var(--hairline); }
+    .cap-wide { grid-column: 1 / -1; }
+    .cap-num { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.2em; color: rgba(17,17,16,0.28); margin-bottom: 14px; }
+    .cap-name { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 10px; }
+    .cap-desc { font-family: var(--body); font-size: 12px; font-weight: 300; line-height: 1.75; color: var(--mid); }
+
+    /* CTA */
     .cta-block { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; gap: 24px; }
-    .cta-text { font-family: var(--display); font-size: clamp(20px, 3.5vw, 28px); font-weight: 400; letter-spacing: 0.005em; color: var(--ink); line-height: 1.3; opacity: 0.75; }
+    .cta-text { font-family: var(--display); font-size: clamp(20px, 3.5vw, 28px); font-weight: 400; letter-spacing: 0.005em; color: var(--ink); line-height: 1.3; opacity: 0.78; }
     .cta-link { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 0.5px solid var(--ink); padding-bottom: 3px; white-space: nowrap; flex-shrink: 0; opacity: 0.7; transition: opacity 0.2s; }
     .cta-link:hover { opacity: 1; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .page-header { animation: fadeUp 0.7s ease 0.1s both; }
-    .clients { animation: fadeUp 0.7s ease 0.2s both; }
-    .disciplines { animation: fadeUp 0.7s ease 0.3s both; }
-    .cta-block { animation: fadeUp 0.7s ease 0.4s both; }
-    @media (prefers-reduced-motion: reduce) { .page-header, .clients, .disciplines, .cta-block { animation: none; } }
+    .page-header { animation: fadeUp 0.7s ease 0.05s both; }
+    .stats { animation: fadeUp 0.7s ease 0.15s both; }
+    .engagements { animation: fadeUp 0.7s ease 0.25s both; }
+    .collabs { animation: fadeUp 0.7s ease 0.3s both; }
+    .brands { animation: fadeUp 0.7s ease 0.35s both; }
+    .capabilities { animation: fadeUp 0.7s ease 0.4s both; }
+    .cta-block { animation: fadeUp 0.7s ease 0.45s both; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       nav { padding: 0 24px; }
       main { padding-left: 24px; padding-right: 24px; padding-top: calc(var(--nav-h) + 48px); }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .disc-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 24px 0; }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 0.5px solid var(--hairline); }
+      .eng-row { grid-template-columns: 1fr; gap: 10px; }
+      .eng-metric { text-align: left; }
+      .cap-grid { grid-template-columns: 1fr; }
       .cta-block { flex-direction: column; align-items: flex-start; }
-      .client-name { font-size: 16px; }
     }
   </style>
 </head>
@@ -96,27 +130,80 @@
   </div>
 
   <main>
+
     <div class="page-header">
-      <p class="page-eyebrow">Selected work</p>
-      <h1 class="page-title">Making brands<br>impossible to ignore.</h1>
-      <div class="page-rule"></div>
+      <p class="page-eyebrow">Creative Direction · Social · Partnerships</p>
+      <h1 class="page-title">Content that<br>moves culture.</h1>
+      <p class="page-lede">Thirteen years leading social and digital for global entertainment brands — billions of organic views, viral franchises, and the partnerships and revenue to match.</p>
     </div>
 
-    <div class="clients">
-      <p class="section-label">Clients &amp; collaborators</p>
-      <div class="client-row"><span class="client-name">Rockettes / MSG</span><span class="client-role">Creative Direction</span></div>
-      <div class="client-row"><span class="client-name">Billboard Magazine</span><span class="client-role">Social Strategy</span></div>
-      <div class="client-row"><span class="client-name">Panasonic</span><span class="client-role">Content Direction</span></div>
-      <div class="client-row"><span class="client-name">The Soho Sessions</span><span class="client-role">Brand &amp; Social</span></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">3B+</div><div class="stat-label">Organic views,<br>across platforms</div></div>
+      <div class="stat"><div class="stat-num">10X</div><div class="stat-label">Social growth,<br>The Rockettes</div></div>
+      <div class="stat"><div class="stat-num">$7M</div><div class="stat-label">Earned media,<br>Sphere launch</div></div>
+      <div class="stat"><div class="stat-num">#1</div><div class="stat-label">Media brand on X,<br>Billboard</div></div>
     </div>
 
-    <div class="disciplines">
-      <p class="section-label">What we do</p>
-      <div class="disc-grid">
-        <div class="disc-item"><div class="disc-num">01</div><div class="disc-name">Social Strategy</div><div class="disc-desc">Platform-native thinking built for reach, retention, and real cultural moments.</div></div>
-        <div class="disc-item"><div class="disc-num">02</div><div class="disc-name">Creative Direction</div><div class="disc-desc">Visual identity and art direction with a point of view that travels across formats.</div></div>
-        <div class="disc-item"><div class="disc-num">03</div><div class="disc-name">Content Direction</div><div class="disc-desc">From brief to publish-ready — ideation, production oversight, editorial judgment.</div></div>
-        <div class="disc-item"><div class="disc-num">04</div><div class="disc-name">Brand Voice</div><div class="disc-desc">Tone, language, and the through-line that makes a brand sound like itself everywhere.</div></div>
+    <div class="engagements">
+      <p class="section-label">Selected engagements</p>
+
+      <div class="eng-row">
+        <div>
+          <div class="eng-title">The Rockettes — Rebrand</div>
+          <div class="eng-role">Head of Social &amp; Senior Director, Digital Content at MSG Entertainment. Repositioned a 100-year-old icon as a culturally relevant, year-round dance company — including the viral "Dance Telephone" series and the Mariah Carey + Rockettes collaboration.</div>
+        </div>
+        <div class="eng-metric">1B+ Views<br>3M+ New Fans</div>
+      </div>
+
+      <div class="eng-row">
+        <div>
+          <div class="eng-title">Sphere — <em>The Wizard of Oz</em> Launch</div>
+          <div class="eng-role">Led end-to-end influencer strategy for the global flagship launch. 40+ creators across a three-month phased rollout in NYC, LA, and Las Vegas, with integrated stunt moments and premiere access.</div>
+        </div>
+        <div class="eng-metric">$7M<br>Earned Media</div>
+      </div>
+
+      <div class="eng-row">
+        <div>
+          <div class="eng-title">Billboard — Social Video Division</div>
+          <div class="eng-role">Senior Content Strategist. Built the brand's social video division from the ground up with talent-driven content, reaching #1 media brand on Twitter — surpassing the NFL.</div>
+        </div>
+        <div class="eng-metric">1B+ Annual<br>Views</div>
+      </div>
+
+      <div class="eng-row">
+        <div>
+          <div class="eng-title">Brand Partnerships &amp; Revenue</div>
+          <div class="eng-role">Co-developed and helped close a $500K social-first Sephora partnership, and drove multi-million-dollar partnership revenue through social-led campaigns across paid, organic, and experiential.</div>
+        </div>
+        <div class="eng-metric">$500K Deal<br>Multi-M Revenue</div>
+      </div>
+
+    </div>
+
+    <div class="collabs">
+      <p class="section-label">Talent &amp; collaborations</p>
+      <p class="collab-names">Mariah Carey <span>·</span> Sabrina Carpenter <span>·</span> Cher <span>·</span> Olivia Dean <span>·</span> Kate Hudson <span>·</span> Meghan Trainor <span>·</span> Jennifer Garner <span>·</span> Keith Richards <span>·</span> Madonna <span>·</span> Lady Gaga</p>
+    </div>
+
+    <div class="brands">
+      <p class="section-label">Social &amp; digital leadership</p>
+      <p class="brand-list">Billboard <span>/</span> Madison Square Garden <span>/</span> Sphere <span>/</span> Radio City Rockettes <span>/</span> Panasonic</p>
+    </div>
+
+    <div class="brands">
+      <p class="section-label">Partnerships activated</p>
+      <p class="brand-list">Sephora <span>/</span> Lululemon <span>/</span> QVC <span>/</span> Delta Air Lines <span>/</span> SKIMS <span>/</span> LIFEWTR <span>/</span> LUMIX <span>/</span> Technics <span>/</span> Churchill Downs</p>
+    </div>
+
+    <div class="capabilities">
+      <p class="section-label">Capabilities</p>
+      <div class="cap-grid">
+        <div class="cap-item"><div class="cap-num">01</div><div class="cap-name">Creative Direction</div><div class="cap-desc">Visual identity and art direction with a point of view that travels across every platform and format.</div></div>
+        <div class="cap-item"><div class="cap-num">02</div><div class="cap-name">Content Strategy</div><div class="cap-desc">Platform-native thinking built for reach, retention, and real cultural moments — from brief to publish.</div></div>
+        <div class="cap-item"><div class="cap-num">03</div><div class="cap-name">Influencer &amp; Creator Marketing</div><div class="cap-desc">Repeatable creator programs that turn cultural moments into distribution, amplification, and revenue.</div></div>
+        <div class="cap-item"><div class="cap-num">04</div><div class="cap-name">Brand Partnerships</div><div class="cap-desc">Social-first partnerships developed, structured, and closed alongside internal sales and external agencies.</div></div>
+        <div class="cap-item cap-wide"><div class="cap-num">05</div><div class="cap-name">AI-Augmented Production</div><div class="cap-desc">AI woven into ideation and production workflows to move faster and test more — always in service of human-led strategy and brand voice.</div></div>
       </div>
     </div>
 
@@ -124,6 +211,7 @@
       <p class="cta-text">Let's talk about<br>what you're building.</p>
       <a href="contact.html" class="cta-link">Get in touch ↗</a>
     </div>
+
   </main>
 
   <script>

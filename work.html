@@ -95,6 +95,32 @@
     }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
+    /* stats: let the children carry the motion, not the parent block */
+    .stats.reveal { opacity: 1; transform: none; }
+
+    /* ── STAT STAGGER + SCALE-UP — each number arrives in sequence with weight ── */
+    .stats .stat {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .stats .stat-num {
+      display: inline-block;
+      transform: scale(0.82);
+      opacity: 0;
+      transition: transform 1s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.8s ease;
+      transform-origin: left center;
+    }
+    .stats.in .stat { opacity: 1; transform: translateY(0); }
+    .stats.in .stat-num { opacity: 1; transform: scale(1); }
+    /* cascade left-to-right */
+    .stats.in .stat:nth-child(1), .stats.in .stat:nth-child(1) .stat-num { transition-delay: 0.05s; }
+    .stats.in .stat:nth-child(2), .stats.in .stat:nth-child(2) .stat-num { transition-delay: 0.20s; }
+    .stats.in .stat:nth-child(3), .stats.in .stat:nth-child(3) .stat-num { transition-delay: 0.35s; }
+    .stats.in .stat:nth-child(4), .stats.in .stat:nth-child(4) .stat-num { transition-delay: 0.50s; }
+
     /* ── ENGAGEMENT ROW HOVER LIFT ── */
     .eng-row {
       transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
@@ -133,27 +159,11 @@
     main, nav { position: relative; z-index: 2; }
 
     /* ── CUSTOM TRAILING CURSOR (desktop only) ── */
-    @media (pointer: fine) {
-      .cursor-dot, .cursor-ring {
-        position: fixed; top: 0; left: 0; z-index: 9999;
-        pointer-events: none; transform: translate(-50%, -50%);
-      }
-      .cursor-dot { width: 7px; height: 7px; background: var(--ink); border-radius: 50%; }
-      .cursor-ring {
-        width: 38px; height: 38px; border: 1px solid rgba(17,17,16,0.4);
-        border-radius: 50%;
-        transition: width .28s ease, height .28s ease, border-color .28s ease, background .28s ease;
-      }
-      .cursor-ring.hovering {
-        width: 60px; height: 60px;
-        border-color: rgba(17,17,16,0);
-        background: rgba(17,17,16,0.06);
-      }
-      body, a, button, .hamburger { cursor: none; }
-    }
+    
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      .stats .stat, .stats .stat-num { opacity: 1 !important; transform: none !important; transition: none; }
       * { animation: none !important; }
     }
 
@@ -276,11 +286,7 @@
     </div>
 
   </main>
-
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-
-  <script>
+<script>
     function openMenu()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
 
@@ -300,20 +306,7 @@
     })();
 
     /* Trailing cursor — desktop only */
-    (function(){
-      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
-      var dot=document.getElementById('cursorDot'), ring=document.getElementById('cursorRing');
-      var mx=0,my=0,rx=0,ry=0,started=false;
-      window.addEventListener('mousemove', function(e){
-        mx=e.clientX; my=e.clientY;
-        dot.style.left=mx+'px'; dot.style.top=my+'px';
-        if(!started){ rx=mx; ry=my; started=true; }
-      });
-      (function loop(){
-        rx+=(mx-rx)*0.16; ry+=(my-ry)*0.16;
-        ring.style.left=rx+'px'; ring.style.top=ry+'px';
-        requestAnimationFrame(loop);
-      })();
+    
       document.querySelectorAll('a, button, .hamburger, .eng-row').forEach(function(el){
         el.addEventListener('mouseenter', function(){ ring.classList.add('hovering'); });
         el.addEventListener('mouseleave', function(){ ring.classList.remove('hovering'); });

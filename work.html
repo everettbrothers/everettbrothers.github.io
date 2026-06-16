@@ -85,14 +85,77 @@
     .cta-link:hover { opacity: 1; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .page-header { animation: fadeUp 0.7s ease 0.05s both; }
-    .stats { animation: fadeUp 0.7s ease 0.15s both; }
-    .engagements { animation: fadeUp 0.7s ease 0.25s both; }
-    .collabs { animation: fadeUp 0.7s ease 0.3s both; }
-    .brands { animation: fadeUp 0.7s ease 0.35s both; }
-    .capabilities { animation: fadeUp 0.7s ease 0.4s both; }
-    .cta-block { animation: fadeUp 0.7s ease 0.45s both; }
-    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+    /* ── SCROLL-REVEAL — sections ease up as they enter the viewport ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── ENGAGEMENT ROW HOVER LIFT ── */
+    .eng-row {
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  border-color 0.45s ease, padding-left 0.45s cubic-bezier(0.16,1,0.3,1);
+      border-radius: 2px;
+    }
+    @media (pointer: fine) {
+      .eng-row:hover {
+        transform: translateY(-2px);
+        border-color: rgba(17,17,16,0.32);
+        padding-left: 10px;
+      }
+    }
+
+    /* ── SLOW-DRAW HOVER UNDERLINE on links/CTA ── */
+    .cta-link, a.contact-value, .nav-name {
+      position: relative;
+    }
+    .cta-link::after, .nav-name::after {
+      content: ""; position: absolute; left: 0; bottom: -2px;
+      width: 100%; height: 0.5px; background: currentColor;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .cta-link { border-bottom: none !important; }
+    @media (pointer: fine) {
+      .cta-link:hover::after, .nav-name:hover::after { transform: scaleX(1); }
+    }
+
+    /* ── GRAIN TEXTURE — subliminal film over the marble ── */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    main, nav { position: relative; z-index: 2; }
+
+    /* ── CUSTOM TRAILING CURSOR (desktop only) ── */
+    @media (pointer: fine) {
+      .cursor-dot, .cursor-ring {
+        position: fixed; top: 0; left: 0; z-index: 9999;
+        pointer-events: none; transform: translate(-50%, -50%);
+      }
+      .cursor-dot { width: 7px; height: 7px; background: var(--ink); border-radius: 50%; }
+      .cursor-ring {
+        width: 38px; height: 38px; border: 1px solid rgba(17,17,16,0.4);
+        border-radius: 50%;
+        transition: width .28s ease, height .28s ease, border-color .28s ease, background .28s ease;
+      }
+      .cursor-ring.hovering {
+        width: 60px; height: 60px;
+        border-color: rgba(17,17,16,0);
+        background: rgba(17,17,16,0.06);
+      }
+      body, a, button, .hamburger { cursor: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      * { animation: none !important; }
+    }
 
     @media (max-width: 640px) {
       nav { padding: 0 24px; }
@@ -131,20 +194,20 @@
 
   <main>
 
-    <div class="page-header">
+    <div class="page-header reveal">
       <p class="page-eyebrow">Creative Direction · Social · Partnerships</p>
       <h1 class="page-title">Content that<br>moves culture.</h1>
       <p class="page-lede">Thirteen years leading social and digital for global entertainment brands — billions of organic views, viral franchises, and the partnerships and revenue to match.</p>
     </div>
 
-    <div class="stats">
+    <div class="stats reveal">
       <div class="stat"><div class="stat-num">3B+</div><div class="stat-label">Organic views,<br>across platforms</div></div>
       <div class="stat"><div class="stat-num">10X</div><div class="stat-label">Social growth,<br>The Rockettes</div></div>
       <div class="stat"><div class="stat-num">$7M</div><div class="stat-label">Earned media,<br>Sphere launch</div></div>
       <div class="stat"><div class="stat-num">#1</div><div class="stat-label">Media brand on X,<br>Billboard</div></div>
     </div>
 
-    <div class="engagements">
+    <div class="engagements reveal">
       <p class="section-label">Selected engagements</p>
 
       <div class="eng-row">
@@ -181,22 +244,22 @@
 
     </div>
 
-    <div class="collabs">
+    <div class="collabs reveal">
       <p class="section-label">Talent &amp; collaborations</p>
       <p class="collab-names">Mariah Carey <span>·</span> Sabrina Carpenter <span>·</span> Cher <span>·</span> Olivia Dean <span>·</span> Kate Hudson <span>·</span> Meghan Trainor <span>·</span> Jennifer Garner <span>·</span> Keith Richards <span>·</span> Madonna <span>·</span> Lady Gaga</p>
     </div>
 
-    <div class="brands">
+    <div class="brands reveal">
       <p class="section-label">Social &amp; digital leadership</p>
       <p class="brand-list">Billboard <span>/</span> Madison Square Garden <span>/</span> Sphere <span>/</span> Radio City Rockettes <span>/</span> Panasonic</p>
     </div>
 
-    <div class="brands">
+    <div class="brands reveal">
       <p class="section-label">Partnerships activated</p>
       <p class="brand-list">Sephora <span>/</span> Lululemon <span>/</span> QVC <span>/</span> Delta Air Lines <span>/</span> SKIMS <span>/</span> LIFEWTR <span>/</span> LUMIX <span>/</span> Technics <span>/</span> Churchill Downs</p>
     </div>
 
-    <div class="capabilities">
+    <div class="capabilities reveal">
       <p class="section-label">Capabilities</p>
       <div class="cap-grid">
         <div class="cap-item"><div class="cap-num">01</div><div class="cap-name">Creative Direction</div><div class="cap-desc">Visual identity and art direction with a point of view that travels across every platform and format.</div></div>
@@ -207,16 +270,55 @@
       </div>
     </div>
 
-    <div class="cta-block">
+    <div class="cta-block reveal">
       <p class="cta-text">Let's talk about<br>what you're building.</p>
       <a href="contact.html" class="cta-link">Get in touch ↗</a>
     </div>
 
   </main>
 
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
   <script>
     function openMenu()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+    /* Scroll-reveal: reveal each section as it enters the viewport */
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function(el){ el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+
+    /* Trailing cursor — desktop only */
+    (function(){
+      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+      var dot=document.getElementById('cursorDot'), ring=document.getElementById('cursorRing');
+      var mx=0,my=0,rx=0,ry=0,started=false;
+      window.addEventListener('mousemove', function(e){
+        mx=e.clientX; my=e.clientY;
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+        if(!started){ rx=mx; ry=my; started=true; }
+      });
+      (function loop(){
+        rx+=(mx-rx)*0.16; ry+=(my-ry)*0.16;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a, button, .hamburger, .eng-row').forEach(function(el){
+        el.addEventListener('mouseenter', function(){ ring.classList.add('hovering'); });
+        el.addEventListener('mouseleave', function(){ ring.classList.remove('hovering'); });
+      });
+    })();
   </script>
 </body>
 </html>

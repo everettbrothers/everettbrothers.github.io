@@ -53,12 +53,56 @@
     .request-note { font-family: var(--body); font-size: 12px; font-weight: 300; letter-spacing: 0.04em; color: rgba(17,17,16,0.4); margin-top: 48px; padding-top: 28px; border-top: 0.5px solid var(--hairline); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-    .page-eyebrow { animation: fadeUp 0.6s ease 0.1s both; }
-    .page-title { animation: fadeUp 0.7s ease 0.18s both; }
-    .page-rule { animation: fadeUp 0.7s ease 0.26s both; }
-    .bio, .bio-note { animation: fadeUp 0.7s ease 0.32s both; }
-    .contact-block { animation: fadeUp 0.7s ease 0.4s both; }
-    .request-note { animation: fadeUp 0.7s ease 0.48s both; }
+    /* refined easing on the staggered load-in */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    .page-eyebrow { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
+    .page-title { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
+    .page-rule { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s both; }
+    .bio, .bio-note { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.38s both; }
+    .contact-block { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.48s both; }
+    .request-note { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.56s both; }
+
+    /* slow-draw underline on email + linkedin + nav name */
+    a.contact-value, .nav-name { position: relative; }
+    a.contact-value::after, .nav-name::after {
+      content: ""; position: absolute; left: 0; bottom: -3px;
+      width: 100%; height: 0.5px; background: currentColor;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    @media (pointer: fine) {
+      a.contact-value:hover::after, .nav-name:hover::after { transform: scaleX(1); }
+      a.contact-value:hover { opacity: 1; }
+    }
+
+    /* grain texture */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    main, nav { position: relative; z-index: 2; }
+
+    /* custom trailing cursor — desktop only */
+    @media (pointer: fine) {
+      .cursor-dot, .cursor-ring {
+        position: fixed; top: 0; left: 0; z-index: 9999;
+        pointer-events: none; transform: translate(-50%, -50%);
+      }
+      .cursor-dot { width: 7px; height: 7px; background: var(--ink); border-radius: 50%; }
+      .cursor-ring {
+        width: 38px; height: 38px; border: 1px solid rgba(17,17,16,0.4);
+        border-radius: 50%;
+        transition: width .28s ease, height .28s ease, border-color .28s ease, background .28s ease;
+      }
+      .cursor-ring.hovering {
+        width: 60px; height: 60px;
+        border-color: rgba(17,17,16,0);
+        background: rgba(17,17,16,0.06);
+      }
+      body, a, button, .hamburger { cursor: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 
     @media (max-width: 640px) {
@@ -120,9 +164,32 @@
 
   </main>
 
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
   <script>
     function openMenu()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+    (function(){
+      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+      var dot=document.getElementById('cursorDot'), ring=document.getElementById('cursorRing');
+      var mx=0,my=0,rx=0,ry=0,started=false;
+      window.addEventListener('mousemove', function(e){
+        mx=e.clientX; my=e.clientY;
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+        if(!started){ rx=mx; ry=my; started=true; }
+      });
+      (function loop(){
+        rx+=(mx-rx)*0.16; ry+=(my-ry)*0.16;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a, button, .hamburger').forEach(function(el){
+        el.addEventListener('mouseenter', function(){ ring.classList.add('hovering'); });
+        el.addEventListener('mouseleave', function(){ ring.classList.remove('hovering'); });
+      });
+    })();
   </script>
 </body>
 </html>

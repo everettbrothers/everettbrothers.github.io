@@ -161,9 +161,39 @@
     }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    /* Name arrives: eases open in letter-spacing and scale, settling into place */
+    @keyframes nameExpand {
+      from { opacity: 0; letter-spacing: -0.02em; transform: scale(0.94); }
+      to   { opacity: 1; letter-spacing: 0.06em;  transform: scale(1); }
+    }
     nav   { animation: fadeUp 1s ease 0.2s both; }
     .hero { animation: fadeUp 1.1s ease 0.5s both; }
-    @media (prefers-reduced-motion: reduce) { nav, .hero { animation: none; } }
+    .hero-name { animation: nameExpand 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
+
+    /* Custom trailing cursor — desktop / fine-pointer only */
+    @media (pointer: fine) {
+      .cursor-dot, .cursor-ring {
+        position: fixed; top: 0; left: 0; z-index: 9999;
+        pointer-events: none; transform: translate(-50%, -50%);
+        mix-blend-mode: difference;
+      }
+      .cursor-dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; }
+      .cursor-ring {
+        width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.6);
+        border-radius: 50%;
+        transition: width .28s ease, height .28s ease, border-color .28s ease, background .28s ease;
+      }
+      .cursor-ring.hovering {
+        width: 60px; height: 60px;
+        border-color: rgba(255,255,255,0);
+        background: rgba(255,255,255,0.12);
+      }
+      body { cursor: none; }
+      a, button, .hamburger { cursor: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      nav, .hero, .hero-name { animation: none; }
+    }
   </style>
 </head>
 <body>
@@ -197,9 +227,34 @@
     <p class="hero-tagline">Strategy &nbsp;&middot;&nbsp; Direction &nbsp;&middot;&nbsp; Content</p>
   </div>
 
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
   <script>
     function openMenu()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
     function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+    /* Trailing cursor — only runs on fine-pointer (desktop) devices */
+    (function(){
+      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+      var dot = document.getElementById('cursorDot');
+      var ring = document.getElementById('cursorRing');
+      var mx=0,my=0,rx=0,ry=0,started=false;
+      window.addEventListener('mousemove', function(e){
+        mx=e.clientX; my=e.clientY;
+        dot.style.left=mx+'px'; dot.style.top=my+'px';
+        if(!started){ rx=mx; ry=my; started=true; }
+      });
+      (function loop(){
+        rx+=(mx-rx)*0.16; ry+=(my-ry)*0.16;
+        ring.style.left=rx+'px'; ring.style.top=ry+'px';
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a, button, .hamburger').forEach(function(el){
+        el.addEventListener('mouseenter', function(){ ring.classList.add('hovering'); });
+        el.addEventListener('mouseleave', function(){ ring.classList.remove('hovering'); });
+      });
+    })();
   </script>
 </body>
 </html>

@@ -304,14 +304,6 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       els.forEach(function(el){ io.observe(el); });
     })();
-
-    /* Trailing cursor — desktop only */
-    
-      document.querySelectorAll('a, button, .hamburger, .eng-row').forEach(function(el){
-        el.addEventListener('mouseenter', function(){ ring.classList.add('hovering'); });
-        el.addEventListener('mouseleave', function(){ ring.classList.remove('hovering'); });
-      });
-    })();
   </script>
 </body>
 </html>

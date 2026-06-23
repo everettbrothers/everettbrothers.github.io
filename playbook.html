@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Social-First Playbook — Everett Brothers</title>
+  <meta name="description" content="A free field guide for communicators: how entertainment brands turn moments into movements." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Social-First Playbook — Everett Brothers" />
+  <meta property="og:description" content="How entertainment brands turn moments into movements. A free field guide." />
+  <meta property="og:url" content="https://everett-brothers.com/playbook.html" />
+  <meta property="og:image" content="https://everett-brothers.com/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Libre+Franklin:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#F7F7F5; --ink:#111110; --charcoal:#2B2B2B;
+      --mid:rgba(247,247,245,0.62); --hair:rgba(247,247,245,0.12);
+      --sand:#C8BFA8;
+      --display:'Archivo',sans-serif; --body:'Libre Franklin',sans-serif;
+    }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--charcoal); color:var(--white);
+      font-family:var(--body); font-weight:300; min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+      display:flex; align-items:center; justify-content:center;
+      padding:40px 24px;
+    }
+    .wrap { max-width:560px; width:100%; }
+    .eyebrow { font-size:9px; letter-spacing:0.36em; text-transform:uppercase; color:var(--sand); margin-bottom:24px; }
+    h1 { font-family:var(--display); font-weight:600; font-size:clamp(30px,6vw,44px); line-height:1.1; letter-spacing:-0.01em; margin-bottom:22px; }
+    .lead { font-size:15px; line-height:1.8; color:var(--mid); margin-bottom:14px; }
+    .rule { width:36px; height:1px; background:var(--sand); margin:30px 0; }
+
+    .points { list-style:none; margin:0 0 36px; }
+    .points li { font-size:13px; color:var(--mid); padding:9px 0; border-bottom:0.5px solid var(--hair); display:flex; gap:12px; }
+    .points li .m { color:var(--sand); font-family:var(--display); font-weight:600; flex-shrink:0; }
+
+    form { display:flex; flex-direction:column; gap:14px; }
+    .field label { display:block; font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color:rgba(247,247,245,0.4); margin-bottom:9px; }
+    .field input {
+      width:100%; background:none; border:none; border-bottom:0.5px solid rgba(247,247,245,0.25);
+      padding:8px 0 10px; font-family:var(--body); font-weight:300; font-size:15px; color:var(--white);
+      outline:none; transition:border-color 0.2s; -webkit-appearance:none; border-radius:0;
+    }
+    .field input::placeholder { color:rgba(247,247,245,0.3); }
+    .field input:focus { border-bottom-color:var(--white); }
+    .row { display:flex; gap:24px; }
+    .row .field { flex:1; }
+    .submit {
+      margin-top:14px; font-family:var(--body); font-weight:300; font-size:10px;
+      letter-spacing:0.28em; text-transform:uppercase; color:var(--charcoal);
+      background:var(--white); border:none; padding:16px 28px; cursor:pointer;
+      transition:opacity 0.2s; align-self:flex-start;
+    }
+    .submit:hover { opacity:0.8; }
+    .note { font-size:11px; color:rgba(247,247,245,0.35); margin-top:14px; line-height:1.6; }
+
+    .success { display:none; }
+    .success.show { display:block; }
+    .success h2 { font-family:var(--display); font-weight:600; font-size:26px; margin-bottom:16px; }
+    .success p { font-size:14px; color:var(--mid); line-height:1.7; margin-bottom:24px; }
+    .dl-btn { display:inline-block; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:var(--white); text-decoration:none; border:0.5px solid rgba(247,247,245,0.4); padding:14px 26px; transition:background 0.2s; }
+    .dl-btn:hover { background:rgba(247,247,245,0.08); }
+
+    .back { display:inline-block; margin-top:40px; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(247,247,245,0.45); text-decoration:none; }
+    .back:hover { color:var(--white); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div id="formView">
+      <p class="eyebrow">Free Field Guide</p>
+      <h1>The Social-First Playbook</h1>
+      <p class="lead">How entertainment brands stop broadcasting and start creating the things people can't help but share — the frameworks behind billions of organic views, distilled into something you can use Monday morning.</p>
+      <div class="rule"></div>
+
+      <ul class="points">
+        <li><span class="m">01</span><span>Find the heritage hiding in plain sight</span></li>
+        <li><span class="m">02</span><span>Build the moment, then let creators carry it</span></li>
+        <li><span class="m">03</span><span>Optimize for "did anyone care," not "did we post"</span></li>
+        <li><span class="m">04</span><span>Treat social as the revenue engine, not the cost center</span></li>
+        <li><span class="m">05</span><span>Use AI for speed, humans for the soul</span></li>
+      </ul>
+
+      <!--
+        FORM SETUP (free): This uses Formspree to capture the email and notify you.
+        1. Go to https://formspree.io, make a free account.
+        2. Create a form; it gives you an endpoint like https://formspree.io/f/xxxxxx
+        3. Paste it into the action="" below, replacing YOUR_FORM_ID.
+        When someone submits, you get their name + email, and they see the download button.
+      -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" placeholder="Optional" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+        <button type="submit" class="submit">Send me the playbook ↗</button>
+        <p class="note">No spam, ever. You'll get the playbook and the occasional note on what's working in social. Unsubscribe anytime.</p>
+      </form>
+    </div>
+
+    <div class="success" id="successView">
+      <p class="eyebrow">You're in</p>
+      <h2>Check your inbox — and grab it now.</h2>
+      <p>Thanks for grabbing the playbook. A copy is on its way to your email, and you can download it right here too.</p>
+      <a href="Social-First_Playbook_Everett_Brothers.pdf" class="dl-btn" download>Download the playbook ↗</a>
+      <br>
+      <a href="index.html" class="back">← Back to everett-brothers.com</a>
+    </div>
+
+  </div>
+
+  <script>
+    async function handleSubmit(e){
+      e.preventDefault();
+      var form=e.target, btn=form.querySelector('.submit');
+      btn.textContent='Sending…'; btn.disabled=true;
+      try {
+        var res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+        if(res.ok){
+          document.getElementById('formView').style.display='none';
+          document.getElementById('successView').classList.add('show');
+        } else { btn.textContent='Try again'; btn.disabled=false; }
+      } catch { btn.textContent='Try again'; btn.disabled=false; }
+    }
+  </script>
+</body>
+</html>

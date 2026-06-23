@@ -1,0 +1,48 @@
+═══════════════════════════════════════════════════════════════
+  ANALYTICS SETUP — pick ONE, takes ~2 minutes
+═══════════════════════════════════════════════════════════════
+
+Your three HTML pages already have both options built in as commented-out
+code near the bottom of each <head>. You just sign up, get one line/ID,
+paste it in, and uncomment it. Do this in all 3 files (index, work, contact).
+
+───────────────────────────────────────────────────────────────
+OPTION 1 — PLAUSIBLE  (recommended: simple, private, no cookie banner)
+───────────────────────────────────────────────────────────────
+1. Go to plausible.io and create an account (paid, ~$9/mo — but has a
+   30-day free trial, and it's the cleanest option).
+   OR use a free alternative: "Umami" (umami.is) or "Counter.dev" — both free.
+2. Add your site: everett-brothers.com
+3. They give you a <script> line. In each HTML file, find the
+   "OPTION 1: Plausible" comment and replace the commented line with
+   theirs, removing the <!-- and --> around it.
+
+WHY THIS ONE: no cookie consent banner needed (it doesn't track people
+individually), loads fast, and the dashboard is dead simple — visitors,
+top pages, where they came from. Perfect for "did FPRA people visit?"
+
+───────────────────────────────────────────────────────────────
+OPTION 2 — GOOGLE ANALYTICS  (free, more detailed, needs Google account)
+───────────────────────────────────────────────────────────────
+1. Go to analytics.google.com, sign in with a Google account.
+2. Create a property for everett-brothers.com.
+3. It gives you a Measurement ID like  G-XXXXXXXXXX
+4. In each HTML file, find the "OPTION 2: Google Analytics" comment,
+   uncomment that block (remove <!-- and -->), and replace BOTH
+   instances of G-XXXXXXXXXX with your real ID.
+
+NOTE: Google Analytics uses cookies, so technically you should add a
+cookie consent notice for EU/UK visitors. If most of your audience is
+US, this matters less, but Plausible avoids the issue entirely.
+
+───────────────────────────────────────────────────────────────
+WHICH SHOULD YOU PICK?
+───────────────────────────────────────────────────────────────
+For a clean personal/consulting site where you mainly want to know
+"how many people visited and which pages" — go with a free privacy
+option (Umami or Counter.dev) or Plausible. Skip Google Analytics
+unless you specifically want its depth. Less setup, no cookie banner,
+fits your minimal aesthetic.
+
+After you paste it in and re-upload the files, visit your own site,
+then check the dashboard — you should see your own visit appear.

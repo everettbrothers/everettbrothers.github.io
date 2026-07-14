@@ -44,7 +44,11 @@
     .page-title { font-family: var(--display); font-size: clamp(34px, 5.5vw, 52px); font-weight: 500; letter-spacing: 0.01em; color: var(--ink); line-height: 1.1; margin-bottom: 28px; }
     .page-rule { width: 24px; height: 0.5px; background: rgba(17,17,16,0.2); margin-bottom: 44px; }
 
-    .bio { font-family: var(--body); font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.85; color: var(--soft); max-width: 580px; margin-bottom: 16px; }
+    /* Optional headshot — upload headshot.jpg to the repo and uncomment the <img> in the HTML below */
+    .bio-wrap { display: flex; gap: 36px; align-items: flex-start; margin-bottom: 16px; }
+    .headshot { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; flex-shrink: 0; filter: grayscale(100%); }
+
+    .bio { font-family: var(--body); font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.85; color: var(--soft); max-width: 580px; }
     .bio strong { color: var(--ink); font-weight: 400; }
     .bio-note { font-family: var(--body); font-size: 13px; font-weight: 300; line-height: 1.8; color: var(--mid); max-width: 580px; margin-bottom: 56px; }
 
@@ -55,17 +59,27 @@
     a.contact-value:hover { opacity: 0.55; }
     .contact-sub { font-family: var(--body); font-size: 13px; font-weight: 300; color: var(--mid); margin-top: 10px; line-height: 1.7; }
 
-    .request-note { font-family: var(--body); font-size: 12px; font-weight: 300; letter-spacing: 0.04em; color: rgba(17,17,16,0.4); margin-top: 48px; padding-top: 28px; border-top: 0.5px solid var(--hairline); }
+    /* Portfolio request — the gate as a CTA */
+    .portfolio-block { margin-top: 52px; padding-top: 36px; border-top: 0.5px solid var(--hairline); }
+    .portfolio-lede { font-family: var(--display); font-size: clamp(17px, 2.6vw, 21px); font-weight: 400; color: var(--ink); line-height: 1.45; max-width: 520px; margin-bottom: 22px; opacity: 0.85; }
+    .portfolio-cta {
+      display: inline-block; font-family: var(--body);
+      font-size: 10px; font-weight: 300; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+      border: 0.5px solid rgba(17,17,16,0.55);
+      padding: 13px 34px 12px 38px;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .portfolio-cta:hover, .portfolio-cta:focus-visible { background: var(--ink); color: var(--white); border-color: var(--ink); outline: none; }
+    .portfolio-sub { font-family: var(--body); font-size: 12px; font-weight: 300; letter-spacing: 0.04em; color: rgba(17,17,16,0.4); margin-top: 16px; }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-    /* refined easing on the staggered load-in */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     .page-eyebrow { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
     .page-title { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
     .page-rule { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s both; }
-    .bio, .bio-note { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.38s both; }
+    .bio-wrap, .bio, .bio-note { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.38s both; }
     .contact-block { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.48s both; }
-    .request-note { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.56s both; }
+    .portfolio-block { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.56s both; }
 
     /* slow-draw underline on email + linkedin + nav name */
     a.contact-value, .nav-name { position: relative; }
@@ -88,9 +102,6 @@
     }
     main, nav { position: relative; z-index: 2; }
 
-    /* custom trailing cursor — desktop only */
-    
-
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 
     @media (max-width: 640px) {
@@ -99,6 +110,8 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .contact-block { grid-template-columns: 1fr; gap: 28px; }
+      .bio-wrap { flex-direction: column; gap: 24px; }
+      .headshot { width: 104px; height: 104px; }
     }
   </style>
 
@@ -123,7 +136,7 @@
   </script>
   -->
 
-<meta name="description" content="Work with Everett Brothers — creative direction, social strategy, and brand partnerships. 13+ years with Billboard, MSG, Sphere, and The Rockettes. Based in NYC, available remote or on-site.">
+<meta name="description" content="Work with Everett Brothers — senior creative executive for social, digital, and partnerships. 13+ years with Billboard, MSG, Sphere, and The Rockettes. NYC-based, remote or on-site.">
 <meta property="og:title" content="Contact — Everett Brothers">
 <meta property="og:description" content="Available for creative direction, social strategy, and brand partnership engagements. New York City.">
 <meta property="og:image" content="https://everett-brothers.com/og-image.png">
@@ -155,8 +168,13 @@
     <h1 class="page-title">Let's talk.</h1>
     <div class="page-rule"></div>
 
-    <p class="bio">A creative and social media leader with <strong>13+ years</strong> and <strong>3B+ video views</strong> building culture-driving content for Billboard, Madison Square Garden, Sphere, the Rockettes, and Panasonic. The work blends storytelling, creator collaboration, and distribution strategy into content that drives measurable growth.</p>
-    <p class="bio-note">New York–based, with roots in New Jersey. Available for creative direction, social and content strategy, and brand partnership engagements — remote or on-site.</p>
+    <div class="bio-wrap">
+      <!-- HEADSHOT: upload your photo to the repo as headshot.jpg, then remove this comment wrapper:
+      <img src="headshot.jpg" alt="Everett Brothers" class="headshot" />
+      -->
+      <p class="bio"><strong>Everett Brothers</strong> is a senior creative executive with <strong>13+ years</strong> and <strong>3B+ video views</strong> building culture-driving content for Billboard, Madison Square Garden, Sphere, the Rockettes, and Panasonic. A <strong>Shorty Award winner</strong> (Best Use of Instagram Live, 2021), his work blends storytelling, creator collaboration, and distribution strategy into content that drives measurable growth.</p>
+    </div>
+    <p class="bio-note">Based in New York City, with roots in New Jersey — and when not on set or in a strategy deck, usually taking class at Broadway Dance Center. Available for creative direction, social and content strategy, and brand partnership engagements, remote or on-site. Speaking: FRPA Annual Conference social media panel, August 2026.</p>
 
     <div class="contact-block">
       <div class="contact-item">
@@ -177,7 +195,11 @@
       </div>
     </div>
 
-    <p class="request-note">Detailed case studies and portfolio available on request.</p>
+    <div class="portfolio-block">
+      <p class="portfolio-lede">The full portfolio — case study visuals, campaign work, and results in detail — is shared privately.</p>
+      <a href="mailto:hello@everett-brothers.com?subject=Portfolio%20request" class="portfolio-cta">Request the portfolio&nbsp;&nbsp;&rarr;</a>
+      <p class="portfolio-sub">A short note on what you're building helps me send the most relevant work.</p>
+    </div>
 
   </main>
 <script>

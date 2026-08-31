@@ -1,468 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Speaking — Everett Brothers</title>
-<meta name="description" content="Keynotes and workshops on building audiences organically. Three billion views across music media and live entertainment, earned rather than bought.">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speaking — Everett Brothers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Libre+Franklin:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #F7F7F5; --ink: #111110;
+      --mid: rgba(17,17,16,0.48); --soft: rgba(17,17,16,0.62);
+      --hairline: rgba(17,17,16,0.1);
+      --nav-h: 60px;
+      --display: 'Archivo', sans-serif; --body: 'Libre Franklin', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: var(--body); font-weight: 300; min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
-<link rel="canonical" href="https://everett-brothers.com/speaking.html">
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 44px; background: var(--white); border-bottom: 0.5px solid var(--hairline); }
+    .nav-name { font-family: var(--display); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.9; }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a { font-family: var(--body); font-size: 10px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.38; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 0.8; }
+    .nav-links a.active { opacity: 1; }
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://everett-brothers.com/speaking.html">
-<meta property="og:title" content="Speaking — Everett Brothers">
-<meta property="og:description" content="Keynotes and workshops on building audiences organically across music media and live entertainment.">
-<meta property="og:image" content="https://everett-brothers.com/assets/speaking-og.jpg">
-<meta name="twitter:card" content="summary_large_image">
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 6px; }
+    .hamburger span { display: block; width: 20px; height: 0.5px; background: var(--ink); opacity: 0.65; }
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 20; background: var(--white); flex-direction: column; align-items: center; justify-content: center; gap: 44px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--display); font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.7; }
+    .mobile-close { position: absolute; top: 18px; right: 40px; background: none; border: none; color: var(--ink); font-size: 22px; cursor: pointer; opacity: 0.35; font-family: var(--body); font-weight: 300; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+    main { padding-top: calc(var(--nav-h) + 80px); padding-bottom: 100px; max-width: 820px; margin: 0 auto; padding-left: 44px; padding-right: 44px; }
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Everett John",
-  "url": "https://everett-brothers.com",
-  "email": "hello@everett-brothers.com",
-  "jobTitle": "Creative Director and Social Strategist",
-  "address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US" },
-  "knowsAbout": ["Social media strategy", "Organic content", "Live entertainment marketing", "Creator programs", "Short-form video"],
-  "performerIn": {
-    "@type": "Event",
-    "name": "FPRA Communications Summit 2026",
-    "startDate": "2026-08",
-    "location": { "@type": "Place", "name": "Florida Public Relations Association Communications Summit" }
-  }
-}
-</script>
+    /* HEADER */
+    .page-header { margin-bottom: 64px; }
+    .page-eyebrow { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.36em; text-transform: uppercase; color: var(--mid); margin-bottom: 28px; }
+    .page-title { font-family: var(--display); font-size: clamp(34px, 5.5vw, 54px); font-weight: 500; letter-spacing: 0.005em; color: var(--ink); line-height: 1.08; margin-bottom: 28px; }
+    .page-lede { font-family: var(--body); font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.75; color: var(--soft); max-width: 560px; }
 
-<style>
-:root{
-  --marble:#F6F5F2;
-  --marble-deep:#EDEBE5;
-  --ink:#15171B;
-  --charcoal:#4A4E55;
-  --sand:#C7B9A2;
-  --sand-pale:#E2D9C9;
-  --rule:rgba(21,23,27,.13);
-  --maxw:1160px;
-}
+    /* STATS */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 0.5px solid var(--hairline); border-bottom: 0.5px solid var(--hairline); margin-bottom: 80px; }
+    .stat { padding: 32px 0; }
+    .stat:not(:last-child) { border-right: 0.5px solid var(--hairline); }
+    .stat-num { font-family: var(--display); font-size: clamp(28px, 4vw, 40px); font-weight: 600; letter-spacing: -0.01em; color: var(--ink); line-height: 1; margin-bottom: 10px; }
+    .stat-label { font-family: var(--body); font-size: 10px; font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); line-height: 1.5; padding-right: 12px; }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--marble);
-  color:var(--ink);
-  font-family:"Libre Franklin",system-ui,sans-serif;
-  font-weight:300;
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block}
-a{color:inherit}
+    /* SECTION LABEL */
+    .section-label { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.36em; text-transform: uppercase; color: rgba(17,17,16,0.3); padding-bottom: 14px; border-bottom: 0.5px solid var(--hairline); margin-bottom: 8px; }
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+    /* TALKS */
+    .talks { margin-bottom: 90px; }
+    .talk-list { border-top: 0.5px solid var(--hairline); }
+    .talk-row { display: grid; grid-template-columns: 108px 1fr; gap: 0 44px;
+      padding: 46px 0; border-bottom: 0.5px solid var(--hairline);
+      transition: border-color 0.45s ease; }
+    .talk-rail { position: relative; }
+    .talk-index { font-family: var(--display); font-size: clamp(44px, 6vw, 62px);
+      font-weight: 600; line-height: 0.85; letter-spacing: -0.03em;
+      color: rgba(17,17,16,0.14); transition: color 0.45s ease; }
+    .talk-kicker { font-family: var(--body); font-size: 9px; font-weight: 300;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(17,17,16,0.34); margin-top: 16px; line-height: 1.7; }
+    @media (pointer: fine) {
+      .talk-row:hover .talk-index { color: rgba(17,17,16,0.32); }
+      .talk-row:hover { border-color: rgba(17,17,16,0.3); }
+    }
+    .talk-title { font-family: var(--display); font-size: clamp(23px, 3.6vw, 31px);
+      font-weight: 500; letter-spacing: 0.005em; color: var(--ink);
+      line-height: 1.15; margin-bottom: 16px; }
+    .talk-desc { font-family: var(--body); font-size: 14px; font-weight: 300;
+      line-height: 1.85; color: var(--soft); max-width: 540px; margin-bottom: 26px; }
+    .talk-takeaways { list-style: none; border-top: 0.5px solid var(--hairline); max-width: 540px; }
+    .talk-takeaways li { font-family: var(--body); font-size: 13px; font-weight: 300;
+      line-height: 1.6; color: var(--mid); padding: 14px 0 14px 26px;
+      border-bottom: 0.5px solid var(--hairline); position: relative; }
+    .talk-takeaways li::before { content: counter(t, decimal-leading-zero);
+      counter-increment: t; position: absolute; left: 0; top: 15px;
+      font-family: var(--body); font-size: 9px; letter-spacing: 0.12em;
+      color: rgba(17,17,16,0.28); }
+    .talk-takeaways { counter-reset: t; }
+    .talk-meta { font-family: var(--body); font-size: 10px; font-weight: 300;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(17,17,16,0.35); margin-top: 22px; }
 
-/* ---------- nav ---------- */
-.nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(246,245,242,.92);
-  backdrop-filter:saturate(180%) blur(12px);
-  border-bottom:1px solid var(--rule);
-}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
-.nav__mark{
-  font-family:"Archivo",sans-serif;font-weight:600;font-size:.78rem;
-  letter-spacing:.20em;text-transform:uppercase;text-decoration:none;
-}
-.nav__links{display:flex;gap:34px;list-style:none}
-.nav__links a{
-  font-family:"Archivo",sans-serif;font-size:.72rem;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
-  color:var(--charcoal);padding-bottom:3px;border-bottom:1px solid transparent;
-  transition:color .2s,border-color .2s;
-}
-.nav__links a:hover,.nav__links a[aria-current="page"]{color:var(--ink);border-color:var(--sand)}
-@media(max-width:680px){
-  .nav .wrap{height:auto;padding-top:16px;padding-bottom:16px;flex-direction:column;gap:12px}
-  .nav__links{gap:22px}
-}
+    /* PORTRAIT + QUOTE PAIR */
+    .feature { display: grid; grid-template-columns: 300px 1fr; gap: 44px;
+      align-items: stretch; margin-bottom: 90px; }
+    .feature-figure { margin: 0; }
+    .feature-figure img { width: 100%; display: block; filter: saturate(0.94); }
+    .feature-figure figcaption { font-family: var(--body); font-size: 10px;
+      font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(17,17,16,0.35); margin-top: 12px; line-height: 1.7; }
 
-/* ---------- section frame ---------- */
-.band{padding:104px 0}
-.band--tight{padding:76px 0}
-.band--deep{background:var(--marble-deep)}
-.band + .band{border-top:1px solid var(--rule)}
+    /* QUOTE */
+    .quote-panel { background: rgba(17,17,16,0.035); padding: 44px 44px 38px;
+      position: relative; height: 100%; display: flex; flex-direction: column;
+      justify-content: center; }
+    .quote-mark { font-family: var(--display); font-size: 88px; font-weight: 600;
+      line-height: 0.6; color: rgba(17,17,16,0.13); margin-bottom: 14px; display: block; }
+    .quote-text { font-family: var(--display); font-size: clamp(18px, 2.7vw, 23px);
+      font-weight: 400; line-height: 1.55; letter-spacing: 0.005em;
+      color: var(--ink); max-width: 600px; opacity: 0.9; }
+    .quote-attr { font-family: var(--body); font-size: 12px; font-weight: 300;
+      line-height: 1.8; color: var(--mid); margin-top: 30px; padding-top: 20px;
+      border-top: 0.5px solid rgba(17,17,16,0.14); max-width: 600px; }
+    .quote-attr strong { display: block; font-weight: 400; color: var(--ink);
+      font-size: 13px; margin-bottom: 3px; letter-spacing: 0.02em; }
 
-.eyebrow{
-  font-family:"Archivo",sans-serif;font-size:.68rem;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--charcoal);
-  display:flex;align-items:center;gap:14px;margin-bottom:30px;
-}
-.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+    /* FORMATS */
+    .formats { margin-bottom: 80px; }
+    .cap-grid { display: grid; grid-template-columns: 1fr 1fr; border-left: 0.5px solid var(--hairline); border-top: 0.5px solid var(--hairline); }
+    .cap-item { padding: 28px; border-right: 0.5px solid var(--hairline); border-bottom: 0.5px solid var(--hairline); }
+    .cap-num { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.2em; color: rgba(17,17,16,0.28); margin-bottom: 14px; }
+    .cap-name { font-family: var(--display); font-size: 15px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 10px; }
+    .cap-desc { font-family: var(--body); font-size: 12px; font-weight: 300; line-height: 1.75; color: var(--mid); }
 
-h2{
-  font-family:"Archivo",sans-serif;font-weight:600;
-  font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;line-height:1.16;
-}
-h3{
-  font-family:"Archivo",sans-serif;font-weight:600;
-  font-size:1.06rem;letter-spacing:-.01em;line-height:1.3;
-}
-p{max-width:62ch}
-.lede{font-size:1.14rem;color:var(--charcoal);line-height:1.72}
+    /* STAGES */
+    .stages { margin-bottom: 90px; }
+    .stage-row { display: grid; grid-template-columns: 1fr auto; gap: 20px 32px;
+      align-items: baseline; padding: 26px 0; border-bottom: 0.5px solid var(--hairline); }
+    .stage-name { font-family: var(--display); font-size: clamp(17px, 2.4vw, 21px);
+      font-weight: 500; letter-spacing: 0.01em; color: var(--ink); }
+    .stage-detail { font-family: var(--display); font-size: 12px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid);
+      text-align: right; white-space: nowrap; }
 
-/* ---------- hero ---------- */
-.hero{padding:112px 0 88px}
-.hero__eyebrow{
-  font-family:"Archivo",sans-serif;font-size:.68rem;font-weight:600;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--charcoal);margin-bottom:34px;
-}
-.hero__title{
-  font-family:"Archivo",sans-serif;font-weight:700;
-  font-size:clamp(2.5rem,7.4vw,5.4rem);
-  line-height:.98;letter-spacing:-.035em;max-width:16ch;
-}
-.hero__title em{font-style:normal;color:var(--sand)}
-.hero__sub{margin-top:34px;font-size:1.16rem;color:var(--charcoal);max-width:56ch;line-height:1.7}
-.hero__actions{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    /* CTA */
+    .cta-block { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; gap: 24px; }
+    .cta-text { font-family: var(--display); font-size: clamp(20px, 3.5vw, 28px); font-weight: 400; letter-spacing: 0.005em; color: var(--ink); line-height: 1.3; opacity: 0.78; }
+    .cta-links { display: flex; flex-direction: column; align-items: flex-end; gap: 18px; flex-shrink: 0; }
+    .cta-link { font-family: var(--body); font-size: 9px; font-weight: 300; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); text-decoration: none; padding-bottom: 3px; white-space: nowrap; flex-shrink: 0; opacity: 0.7; transition: opacity 0.2s; }
+    .cta-link:hover { opacity: 1; }
+    .cta-note { font-family: var(--body); font-size: 12px; font-weight: 300; letter-spacing: 0.04em; line-height: 1.8; color: rgba(17,17,16,0.4); margin-top: 40px; padding-top: 26px; border-top: 0.5px solid var(--hairline); max-width: 560px; }
 
-.btn{
-  font-family:"Archivo",sans-serif;font-size:.74rem;font-weight:600;
-  letter-spacing:.15em;text-transform:uppercase;text-decoration:none;
-  padding:15px 30px;display:inline-block;transition:background .2s,color .2s,border-color .2s;
-}
-.btn--solid{background:var(--ink);color:var(--marble);border:1px solid var(--ink)}
-.btn--solid:hover{background:transparent;color:var(--ink)}
-.btn--line{border:1px solid var(--rule);color:var(--ink)}
-.btn--line:hover{border-color:var(--ink)}
+    /* SCROLL-REVEAL */
+    .reveal { opacity: 0; transform: translateY(26px);
+      transition: opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1);
+      will-change: opacity, transform; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .stats.reveal { opacity: 1; transform: none; }
+    .stats .stat { opacity: 0; transform: translateY(18px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+    .stats .stat-num { display: inline-block; transform: scale(0.82); opacity: 0;
+      transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease; transform-origin: left center; }
+    .stats.in .stat { opacity: 1; transform: translateY(0); }
+    .stats.in .stat-num { opacity: 1; transform: scale(1); }
+    .stats.in .stat:nth-child(1), .stats.in .stat:nth-child(1) .stat-num { transition-delay: 0.05s; }
+    .stats.in .stat:nth-child(2), .stats.in .stat:nth-child(2) .stat-num { transition-delay: 0.20s; }
+    .stats.in .stat:nth-child(3), .stats.in .stat:nth-child(3) .stat-num { transition-delay: 0.35s; }
+    .stats.in .stat:nth-child(4), .stats.in .stat:nth-child(4) .stat-num { transition-delay: 0.50s; }
 
-/* ---------- ledger (signature) ---------- */
-.ledger{
-  margin-top:82px;border-top:1px solid var(--ink);
-  display:grid;grid-template-columns:repeat(4,1fr);
-}
-.ledger__cell{padding:26px 24px 26px 0;border-right:1px solid var(--rule)}
-.ledger__cell:last-child{border-right:0}
-.ledger__num{
-  font-family:"Archivo",sans-serif;font-weight:700;
-  font-size:clamp(1.7rem,3.6vw,2.5rem);letter-spacing:-.03em;line-height:1;
-  font-variant-numeric:tabular-nums;
-}
-.ledger__label{
-  margin-top:12px;font-size:.76rem;line-height:1.45;color:var(--charcoal);
-  letter-spacing:.03em;
-}
-@media(max-width:760px){
-  .ledger{grid-template-columns:repeat(2,1fr)}
-  .ledger__cell:nth-child(2){border-right:0}
-  .ledger__cell:nth-child(1),.ledger__cell:nth-child(2){border-bottom:1px solid var(--rule)}
-}
+    /* SLOW-DRAW UNDERLINE */
+    .cta-link, .nav-name { position: relative; }
+    .cta-link::after, .nav-name::after {
+      content: ""; position: absolute; left: 0; bottom: -2px;
+      width: 100%; height: 0.5px; background: currentColor;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    @media (pointer: fine) {
+      .cta-link:hover::after, .nav-name:hover::after { transform: scaleX(1); }
+    }
 
-/* ---------- talks ---------- */
-.talks{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:8px}
-.talk{background:var(--marble);padding:44px 40px}
-.talk--alt{background:var(--marble)}
-.talk__kicker{
-  font-family:"Archivo",sans-serif;font-size:.66rem;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--sand);margin-bottom:16px;
-}
-.talk__title{
-  font-family:"Archivo",sans-serif;font-weight:700;
-  font-size:clamp(1.5rem,3.4vw,2.15rem);letter-spacing:-.03em;line-height:1.08;max-width:18ch;
-}
-.talk__body{margin-top:20px;color:var(--charcoal);max-width:60ch}
-.talk__takeaways{list-style:none;margin-top:28px;border-top:1px solid var(--rule)}
-.talk__takeaways li{
-  padding:15px 0 15px 34px;border-bottom:1px solid var(--rule);
-  position:relative;font-size:.96rem;color:var(--ink);
-}
-.talk__takeaways li::before{
-  content:"—";position:absolute;left:0;top:15px;color:var(--sand);font-weight:500;
-}
-.talk__meta{
-  margin-top:26px;font-family:"Archivo",sans-serif;font-size:.7rem;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--charcoal);
-}
-@media(min-width:900px){ .talks{grid-template-columns:1fr 1fr} }
-@media(max-width:520px){ .talk{padding:34px 24px} }
+    /* GRAIN */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    main, nav { position: relative; z-index: 2; }
 
-/* ---------- portrait split ---------- */
-.split{display:grid;gap:56px;align-items:center}
-@media(min-width:900px){ .split{grid-template-columns:0.85fr 1.15fr;gap:72px} }
-.portrait{position:relative}
-.portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%}
-.portrait figcaption{
-  margin-top:14px;font-size:.76rem;color:var(--charcoal);letter-spacing:.02em;
-}
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      .stats .stat, .stats .stat-num { opacity: 1 !important; transform: none !important; transition: none; }
+      * { animation: none !important; }
+    }
 
-/* ---------- formats ---------- */
-.formats{display:grid;gap:0;margin-top:8px;border-top:1px solid var(--ink)}
-.format{
-  display:grid;gap:8px;padding:28px 0;border-bottom:1px solid var(--rule);
-}
-@media(min-width:820px){
-  .format{grid-template-columns:230px 1fr;gap:48px;align-items:baseline}
-}
-.format__name{font-family:"Archivo",sans-serif;font-weight:600;font-size:1rem;letter-spacing:-.01em}
-.format__desc{color:var(--charcoal);font-size:.97rem;max-width:64ch}
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      main { padding-left: 24px; padding-right: 24px; padding-top: calc(var(--nav-h) + 48px); }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 24px 0; }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 0.5px solid var(--hairline); }
+      .cap-grid { grid-template-columns: 1fr; }
+      .talk-row { grid-template-columns: 1fr; gap: 0; padding: 36px 0; }
+      .talk-rail { display: flex; align-items: baseline; gap: 16px; margin-bottom: 18px; }
+      .talk-index { font-size: 34px; }
+      .talk-kicker { margin-top: 0; }
+      .feature { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
+      .quote-panel { padding: 34px 26px 30px; }
+      .quote-mark { font-size: 60px; }
+      .stage-row { grid-template-columns: 1fr; gap: 8px; }
+      .stage-detail { text-align: left; }
+      .cta-block { flex-direction: column; align-items: flex-start; }
+      .cta-links { align-items: flex-start; }
+    }
+  </style>
 
-/* ---------- stages ---------- */
-.stages{list-style:none;margin-top:8px;border-top:1px solid var(--ink)}
-.stages li{
-  display:flex;justify-content:space-between;align-items:baseline;gap:24px;
-  padding:20px 0;border-bottom:1px solid var(--rule);
-}
-.stages__name{font-family:"Archivo",sans-serif;font-weight:500;font-size:1rem;letter-spacing:-.01em}
-.stages__detail{font-size:.82rem;color:var(--charcoal);text-align:right;letter-spacing:.03em}
-
-/* ---------- testimonials ---------- */
-.quotes{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-@media(min-width:860px){ .quotes{grid-template-columns:1fr 1fr} }
-.quotes--single{grid-template-columns:1fr !important}
-.quotes--single .quote{padding:56px 52px}
-.quotes--single .quote__text{font-size:1.32rem;max-width:44ch}
-@media(max-width:600px){ .quotes--single .quote{padding:34px 26px} .quotes--single .quote__text{font-size:1.1rem} }
-.quote{background:var(--marble-deep);padding:42px 38px}
-.quote__text{
-  font-family:"Archivo",sans-serif;font-weight:400;
-  font-size:1.16rem;line-height:1.5;letter-spacing:-.015em;
-}
-.quote__attr{
-  margin-top:24px;padding-top:18px;border-top:1px solid var(--rule);
-  font-size:.82rem;color:var(--charcoal);letter-spacing:.03em;
-}
-.quote__attr strong{font-weight:500;color:var(--ink);display:block}
-
-/* ---------- booking ---------- */
-.book{background:var(--ink);color:var(--marble)}
-.book .eyebrow{color:var(--sand-pale)}
-.book .eyebrow::after{background:rgba(246,245,242,.2)}
-.book h2{max-width:20ch}
-.book p{color:rgba(246,245,242,.72);margin-top:22px}
-.book__mail{
-  display:inline-block;margin-top:38px;
-  font-family:"Archivo",sans-serif;font-weight:600;
-  font-size:clamp(1.1rem,2.6vw,1.7rem);letter-spacing:-.02em;
-  text-decoration:none;border-bottom:1px solid var(--sand);padding-bottom:6px;
-  transition:border-color .2s;
-}
-.book__mail:hover{border-color:var(--marble)}
-.book__note{
-  margin-top:40px;padding-top:26px;border-top:1px solid rgba(246,245,242,.18);
-  font-size:.86rem;color:rgba(246,245,242,.6);max-width:56ch;
-}
-
-/* ---------- footer ---------- */
-.foot{padding:44px 0;border-top:1px solid var(--rule)}
-.foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-.foot a{
-  font-family:"Archivo",sans-serif;font-size:.7rem;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--charcoal);
-}
-.foot a:hover{color:var(--ink)}
-.foot__note{font-size:.74rem;color:var(--charcoal);letter-spacing:.04em}
-
-/* ---------- reveal ---------- */
-.rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-}
-a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-</style>
+  <meta name="description" content="Keynotes and workshops on building audiences organically — 3B+ views earned, not bought. Everett Brothers, New York City.">
+  <meta property="og:title" content="Speaking — Everett Brothers">
+  <meta property="og:description" content="Keynotes and workshops on earning attention without buying it. 3B+ organic views across music media and live entertainment.">
+  <meta property="og:image" content="https://everett-brothers.com/og-image.png">
+  <meta property="og:url" content="https://everett-brothers.com/speaking.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
-<!-- Match this nav to your other pages before publishing -->
-<nav class="nav">
-  <div class="wrap">
-    <a class="nav__mark" href="/">Everett Brothers</a>
-    <ul class="nav__links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/work.html">Work</a></li>
-      <li><a href="/speaking.html" aria-current="page">Speaking</a></li>
-      <li><a href="/contact.html">Contact</a></li>
+  <nav>
+    <a href="index.html" class="nav-name">Everett Brothers</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="speaking.html" class="active">Speaking</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
-  </div>
-</nav>
+    <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <p class="hero__eyebrow">Speaking &amp; Workshops</p>
-    <h1 class="hero__title">3 billion views. <em>Earned, not bought.</em></h1>
-    <p class="hero__sub">I've spent fifteen years giving legacy entertainment brands a second act. A holiday tradition generations old. A premiere unlike anything audiences had seen before. A music publication older than television.</p>
-    <div class="hero__actions">
-      <a class="btn btn--solid" href="#booking">Check availability</a>
-      <a class="btn btn--line" href="#talks">See the talks</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()" aria-label="Close">✕</button>
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="work.html" onclick="closeMenu()">Work</a>
+    <a href="speaking.html" onclick="closeMenu()">Speaking</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
+
+  <main>
+
+    <div class="page-header reveal">
+      <p class="page-eyebrow">Keynotes · Workshops · Panels</p>
+      <h1 class="page-title">3 billion views.<br>Earned, not bought.</h1>
+      <p class="page-lede">Thirteen years giving legacy entertainment brands a second act — a holiday tradition generations old, a premiere unlike anything audiences had seen, a music publication older than television.</p>
     </div>
 
-    <div class="ledger">
-      <div class="ledger__cell">
-        <div class="ledger__num">3B+</div>
-        <div class="ledger__label">Organic views across music media and live entertainment</div>
-      </div>
-      <div class="ledger__cell">
-        <div class="ledger__num">$7M</div>
-        <div class="ledger__label">Earned media value from the Wizard of Oz premiere campaign</div>
-      </div>
-      <div class="ledger__cell">
-        <div class="ledger__num">40+</div>
-        <div class="ledger__label">Creators activated across three markets in a single launch</div>
-      </div>
-      <div class="ledger__cell">
-        <div class="ledger__num">#1</div>
-        <div class="ledger__label">Media brand on Twitter, built during my years at Billboard</div>
+    <div class="stats reveal">
+      <div class="stat"><div class="stat-num">3B+</div><div class="stat-label">Organic views,<br>across platforms</div></div>
+      <div class="stat"><div class="stat-num">10X</div><div class="stat-label">Social growth,<br>The Rockettes</div></div>
+      <div class="stat"><div class="stat-num">$7M</div><div class="stat-label">Earned media,<br>Wizard of Oz launch</div></div>
+      <div class="stat"><div class="stat-num">#1</div><div class="stat-label">Media brand on X,<br>Billboard</div></div>
+    </div>
+
+    <div class="talks reveal">
+      <p class="section-label">The talks</p>
+      <div class="talk-list">
+
+        <div class="talk-row">
+          <div class="talk-rail">
+            <div class="talk-index">01</div>
+            <div class="talk-kicker">Keynote</div>
+          </div>
+          <div>
+            <div class="talk-title">How to Earn<br>3 Billion Views</div>
+            <p class="talk-desc">Most organizations treat organic reach as what happens before the ad spend kicks in. It is usually the other way around. This session breaks down how legacy entertainment brands built enormous audiences by finding the stories they already had, and what it takes to run that inside a real organization with real approval chains.</p>
+            <ul class="talk-takeaways">
+              <li>Find the story your brand already has before commissioning a new one</li>
+              <li>Build a creator program that reads as genuine rather than bought</li>
+              <li>Measure earned work in terms leadership will actually fund</li>
+            </ul>
+            <p class="talk-meta">45–60 min · Communications, marketing &amp; brand audiences</p>
+          </div>
+        </div>
+
+        <div class="talk-row">
+          <div class="talk-rail">
+            <div class="talk-index">02</div>
+            <div class="talk-kicker">Keynote<br>Industry variant</div>
+          </div>
+          <div>
+            <div class="talk-title">How to Launch Something<br>Nobody Has Seen Before</div>
+            <p class="talk-desc">A live experience cannot travel to its audience, has no packaging, and often has no reference point people can picture. This session works through building anticipation for shows and premieres audiences had no frame for, including the <em>Wizard of Oz</em> premiere at Sphere and a holiday tradition turned into a year-round cultural brand.</p>
+            <ul class="talk-takeaways">
+              <li>Build anticipation for something audiences cannot yet picture</li>
+              <li>Design moments people want to film without being asked</li>
+              <li>Turn attention into demand, not just impressions</li>
+            </ul>
+            <p class="talk-meta">45–60 min · Live entertainment, attractions, tourism &amp; destinations</p>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</header>
 
-<section class="band band--deep" id="talks">
-  <div class="wrap">
-    <p class="eyebrow rv">The talks</p>
-    <div class="talks">
-
-      <article class="talk rv">
-        <p class="talk__kicker">Keynote</p>
-        <h2 class="talk__title">How to Earn 3 Billion Views</h2>
-        <p class="talk__body">Most organizations treat organic reach as what happens before the ad spend kicks in. It is usually the other way around. This session breaks down how legacy entertainment brands built enormous audiences by finding the stories they already had, and what it takes to run that inside a real organization with real approval chains.</p>
-        <ul class="talk__takeaways">
-          <li>Find the story your brand already has before commissioning a new one</li>
-          <li>Build a creator program that reads as genuine rather than bought</li>
-          <li>Measure earned work in terms leadership will actually fund</li>
-        </ul>
-        <p class="talk__meta">45–60 min · Communications, marketing, and brand audiences</p>
-      </article>
-
-      <article class="talk talk--alt rv">
-        <p class="talk__kicker">Keynote — industry variant</p>
-        <h2 class="talk__title">How to Launch Something Nobody Has Seen Before</h2>
-        <p class="talk__body">A live experience cannot travel to its audience, has no packaging, and often has no reference point people can picture. This session works through how we built anticipation for shows and premieres audiences had no frame for, including the Wizard of Oz premiere at Sphere and a holiday tradition we turned into a year&#8209;round cultural brand.</p>
-        <ul class="talk__takeaways">
-          <li>Build anticipation for something audiences cannot yet picture</li>
-          <li>Design moments people want to film without being asked</li>
-          <li>Turn attention into demand, not just impressions</li>
-        </ul>
-        <p class="talk__meta">45–60 min · Live entertainment, attractions, tourism, and destination audiences</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap split">
-    <figure class="portrait rv">
-      <!-- Cropped from IMG_7075. Move to assets/ and update this path if that
-           matches your folder structure. -->
-      <img src="speaking-portrait.jpg" alt="Everett John speaking on a panel at the FPRA Communications Summit">
-      <figcaption>FPRA Communications Summit, 2026</figcaption>
-    </figure>
-    <div class="rv">
-      <p class="eyebrow">Who's speaking</p>
-      <h2>I've spent fifteen years working on brands people already had opinions about.</h2>
-      <p class="lede" style="margin-top:24px">
-        I built Billboard's social video division from nothing, with a freelance editor and effectively no budget, into the number one media brand on Twitter. I then led social and creative direction at Madison Square Garden Entertainment, where the work drove more than a billion organic views and repositioned the Radio City Rockettes from a seasonal tradition into a year&#8209;round cultural brand.
-      </p>
-      <p class="lede" style="margin-top:18px">
-        Along the way I've produced content with Madonna and Lady Gaga, worked on the campaign behind the Wizard of Oz premiere at Sphere, and produced a surprise live performance of Mariah Carey with the Radio City Rockettes for her Christmas show at Madison Square Garden. I talk about the work plainly, including the parts that didn't go to plan.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!--
-  TESTIMONIALS
-  Elise Ramer's quote, trimmed. Confirm with her before this goes live.
-  When a second quote lands, remove the "quotes--single" class and add a
-  second <blockquote class="quote rv"> alongside this one.
--->
-<section class="band band--deep">
-  <div class="wrap">
-    <p class="eyebrow rv">What organizers say</p>
-    <div class="quotes quotes--single">
-      <blockquote class="quote rv">
-        <p class="quote__text">“I was riveted. Everett’s case studies were impactful. While big names were associated with these social media campaigns, Everett was incredibly relatable. He is just like us, facing similar struggles with proving ROI in the social space, but he showed us different ways to make content meaningful and resonant. 10 out of 10. Would ask him to speak again.”</p>
-        <p class="quote__attr"><strong>Elise Ramer, APR, CPRC</strong>Vice President of Public Relations, Premier Sotheby’s International Realty · FPRA Communications Summit, 2026</p>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <p class="eyebrow rv">Formats</p>
-    <div class="formats rv">
-      <div class="format">
-        <div class="format__name">Keynote</div>
-        <p class="format__desc">45 to 60 minutes, with or without Q&amp;A. Either talk above, tailored to your audience and industry.</p>
-      </div>
-      <div class="format">
-        <div class="format__name">Half-day workshop</div>
-        <p class="format__desc">A working session for in-house teams. We audit your current channels, find the story you already have, and leave with a build plan rather than a slide deck.</p>
-      </div>
-      <div class="format">
-        <div class="format__name">Panel or fireside</div>
-        <p class="format__desc">Moderated or as a panelist. Comfortable on stage with peers and happy to be the person who says the specific thing.</p>
-      </div>
-      <div class="format">
-        <div class="format__name">University &amp; student sessions</div>
-        <p class="format__desc">Guest lectures and open sessions for communications, marketing, and digital media programs. Reduced terms for academic institutions.</p>
+    <p class="section-label reveal" style="margin-bottom:28px;">What organizers say</p>
+    <div class="feature reveal">
+      <figure class="feature-figure">
+        <img src="speaking-portrait.jpg" alt="Everett Brothers speaking at the FPRA Communications Summit">
+        <figcaption>FPRA Communications Summit<br>August 2026</figcaption>
+      </figure>
+      <div class="quote-panel">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">I was riveted. Everett&rsquo;s case studies were impactful. He is just like us, facing similar struggles with proving ROI in the social space, but he showed us different ways to make content meaningful and resonant. 10 out of 10. Would ask him to speak again.</p>
+        <p class="quote-attr"><strong>Elise Ramer, APR, CPRC</strong>Vice President of Public Relations, Premier Sotheby&rsquo;s International Realty</p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="band band--tight band--deep">
-  <div class="wrap">
-    <p class="eyebrow rv">Recent stages</p>
-    <ul class="stages rv">
-      <li>
-        <span class="stages__name">FPRA Communications Summit</span>
-        <span class="stages__detail">Panel · 2026</span>
-      </li>
-      <!-- Add SCAD and anything else as it confirms. Two or three entries is fine.
-           A list of one still beats an empty section. -->
-    </ul>
-  </div>
-</section>
+    <div class="formats reveal">
+      <p class="section-label">Formats</p>
+      <div class="cap-grid">
+        <div class="cap-item"><div class="cap-num">01</div><div class="cap-name">Keynote</div><div class="cap-desc">45 to 60 minutes, with or without Q&amp;A. Either talk above, tailored to your audience and industry.</div></div>
+        <div class="cap-item"><div class="cap-num">02</div><div class="cap-name">Half-Day Workshop</div><div class="cap-desc">A working session for in-house teams. Audit the channels, find the story already there, leave with a build plan rather than a deck.</div></div>
+        <div class="cap-item"><div class="cap-num">03</div><div class="cap-name">Panel &amp; Fireside</div><div class="cap-desc">As moderator or panelist. Comfortable on stage with peers and happy to be the one who says the specific thing.</div></div>
+        <div class="cap-item"><div class="cap-num">04</div><div class="cap-name">University Sessions</div><div class="cap-desc">Guest lectures for communications, marketing, and digital media programs. Reduced terms for academic institutions.</div></div>
+      </div>
+    </div>
 
-<section class="band book" id="booking">
-  <div class="wrap">
-    <p class="eyebrow rv">Booking</p>
-    <h2 class="rv">Tell me about the room and I'll tell you what I'd bring to it.</h2>
-    <p class="rv">Based in New York and available to travel. For the fastest reply, include your event date, city, audience size, and who's in the seats.</p>
-    <a class="book__mail rv" href="mailto:hello@everett-brothers.com?subject=Speaking%20inquiry">hello@everett-brothers.com</a>
-    <p class="book__note rv">Fees vary by format, travel, and organization type. Reduced terms for universities, nonprofits, and regional associations — ask.</p>
-  </div>
-</section>
+    <div class="stages reveal">
+      <p class="section-label">Recent stages</p>
+      <div class="stage-row">
+        <span class="stage-name">FPRA Communications Summit</span>
+        <span class="stage-detail">Panelist · Aug 2026</span>
+      </div>
+    </div>
 
-<footer class="foot">
-  <div class="wrap">
-    <span class="foot__note">Everett Brothers · New York</span>
-    <a href="mailto:hello@everett-brothers.com">hello@everett-brothers.com</a>
-  </div>
-</footer>
+    <div class="cta-block reveal">
+      <p class="cta-text">Tell me about the room<br>and what it needs.</p>
+      <div class="cta-links">
+        <a href="mailto:hello@everett-brothers.com?subject=Speaking%20inquiry" class="cta-link">Check availability ↗</a>
+        <a href="work.html" class="cta-link">See the work ↗</a>
+      </div>
+    </div>
+
+    <p class="cta-note reveal">Based in New York City and available to travel. For the fastest reply, include your event date, city, audience size, and who is in the seats. Fees vary by format, travel, and organization type — reduced terms for universities, nonprofits, and regional associations.</p>
+
+  </main>
 
 <script>
-(function(){
-  var els = document.querySelectorAll('.rv');
-  if(!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    els.forEach(function(el){ el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
+    function openMenu()  { document.getElementById('mobileMenu').classList.add('open');    document.body.style.overflow='hidden'; }
+    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
 
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function(el){ el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
 </body>
 </html>

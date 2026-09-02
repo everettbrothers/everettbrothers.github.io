@@ -94,8 +94,9 @@
     /* PORTRAIT + QUOTE PAIR */
     .feature { display: grid; grid-template-columns: 300px 1fr; gap: 44px;
       align-items: stretch; margin-bottom: 90px; }
-    .feature-figure { margin: 0; }
-    .feature-figure img { width: 100%; display: block; filter: saturate(0.94); }
+    .feature-figure { margin: 0; display: flex; flex-direction: column; }
+    .feature-figure img { width: 100%; flex: 1; min-height: 0; display: block;
+      object-fit: cover; object-position: center 25%; filter: saturate(0.94); }
     .feature-figure figcaption { font-family: var(--body); font-size: 10px;
       font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase;
       color: rgba(17,17,16,0.35); margin-top: 12px; line-height: 1.7; }
@@ -106,7 +107,7 @@
       justify-content: center; }
     .quote-mark { font-family: var(--display); font-size: 88px; font-weight: 600;
       line-height: 0.6; color: rgba(17,17,16,0.13); margin-bottom: 14px; display: block; }
-    .quote-text { font-family: var(--display); font-size: clamp(18px, 2.7vw, 23px);
+    .quote-text { font-family: var(--display); font-size: clamp(16px, 2.2vw, 19px);
       font-weight: 400; line-height: 1.55; letter-spacing: 0.005em;
       color: var(--ink); max-width: 600px; opacity: 0.9; }
     .quote-attr { font-family: var(--body); font-size: 12px; font-weight: 300;
@@ -199,6 +200,7 @@
       .talk-index { font-size: 34px; }
       .talk-kicker { margin-top: 0; }
       .feature { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
+      .feature-figure img { flex: none; aspect-ratio: 4/5; }
       .quote-panel { padding: 34px 26px 30px; }
       .quote-mark { font-size: 60px; }
       .stage-row { grid-template-columns: 1fr; gap: 8px; }

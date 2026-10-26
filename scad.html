@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCAD Sessions 2026 — Everett Brothers</title>
+<!-- Unlisted page: keep out of search results and the sitemap -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Libre+Franklin:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #2B2B2B;
+    --ink: #111110;
+    --cream: #E4E2DD;
+    --sand: #9A9078;
+    --sand-light: #C8BFA8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--charcoal); color: var(--cream); }
+  body {
+    font-family: "Libre Franklin", Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+  header, main, footer {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  header {
+    padding-top: 28px;
+    padding-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wordmark {
+    font-family: "Archivo", Arial, sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .eyebrow {
+    font-family: "Archivo", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--sand);
+  }
+  main { flex: 1; padding-top: 24px; padding-bottom: 40px; }
+  h1 {
+    font-family: "Archivo", Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-top: 14px;
+    margin-bottom: 32px;
+  }
+  .deck {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  }
+  .deck iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .btn {
+    font-family: "Archivo", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--cream);
+    background: transparent;
+    border: 1px solid rgba(228, 226, 221, 0.35);
+    border-radius: 999px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn:hover, .btn:focus-visible { border-color: var(--sand-light); color: var(--sand-light); outline: none; }
+  .note { margin-top: 16px; font-size: 14px; color: #b5b2aa; }
+  footer {
+    padding-top: 24px;
+    padding-bottom: 32px;
+    border-top: 1px solid rgba(228, 226, 221, 0.12);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #b5b2aa;
+  }
+  footer a { color: var(--cream); text-decoration: none; }
+  footer a:hover { color: var(--sand-light); }
+</style>
+</head>
+<body>
+  <header>
+    <a class="wordmark" href="/">Everett Brothers</a>
+    <span class="eyebrow">Private</span>
+  </header>
+
+  <main>
+    <p class="eyebrow">SCAD Sessions · Fall 2026</p>
+    <h1>Portfolio Review</h1>
+
+    <div class="deck" id="deck">
+      <iframe
+        loading="lazy"
+        src="https://www.canva.com/design/DAHZDqrnIuQ/SR3QChFgpsbYmi194_B2Lw/view?embed"
+        title="Everett Brothers — SCAD Sessions 2026 presentation"
+        allowfullscreen
+        allow="fullscreen">
+      </iframe>
+    </div>
+
+    <div class="actions">
+      <button class="btn" type="button" id="fs">Full screen</button>
+      <a class="btn" href="https://www.canva.com/design/DAHZDqrnIuQ/SR3QChFgpsbYmi194_B2Lw/view" target="_blank" rel="noopener">Open in Canva ↗</a>
+    </div>
+    <p class="note">Use the arrows in the deck or your keyboard to move between slides.</p>
+  </main>
+
+  <footer>
+    <span>© 2026 Everett Brothers</span>
+    <a href="mailto:hello@everett-brothers.com">hello@everett-brothers.com</a>
+  </footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('fs');
+    var deck = document.getElementById('deck');
+    var req = deck.requestFullscreen || deck.webkitRequestFullscreen;
+    if (!req) { btn.style.display = 'none'; return; }
+    btn.addEventListener('click', function () { req.call(deck); });
+  })();
+</script>
+</body>
+</html>

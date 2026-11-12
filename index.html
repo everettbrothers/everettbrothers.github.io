@@ -150,6 +150,8 @@
       margin: 0 auto 24px;
     }
     .hero-cred strong { font-weight: 400; color: var(--white); }
+    /* availability line: desktop only, so the mobile stack stays clear of the video */
+    .hero-avail { display: none; }
     .hero-cta {
       pointer-events: auto;
       display: inline-block;
@@ -194,6 +196,15 @@
       .hero-rule { display: block; margin: 0 0 22px; }
       .hero-cred {
         font-size: 13px;
+        max-width: 380px;
+        margin: 0 0 14px;
+      }
+      .hero-avail {
+        display: block;
+        font-family: var(--body);
+        font-size: 12px; font-weight: 300;
+        letter-spacing: 0.06em; line-height: 1.7;
+        color: rgba(247,247,245,0.6);
         max-width: 380px;
         margin: 0 0 32px;
       }
@@ -294,6 +305,7 @@
     <h1 class="hero-name">Everett Brothers</h1>
     <div class="hero-rule"></div>
     <p class="hero-cred"><strong>3B+ organic views</strong> across thirteen years leading social for the world&rsquo;s biggest entertainment brands.</p>
+    <p class="hero-avail">Available for fractional leadership, consulting and speaking.</p>
     <a href="work.html" class="hero-cta">See the work&nbsp;&nbsp;&rarr;</a>
   </div>
 <script>

@@ -9,6 +9,7 @@
   <link rel="manifest" href="site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Everett Brothers — Creative Direction</title>
+  <link rel="canonical" href="https://everett-brothers.com/" />
   <meta name="description" content="Creative direction and social strategy behind 3B+ views — Billboard, Madison Square Garden, Sphere, The Rockettes. New York City." />
 
   <!-- Link preview (Open Graph) — shown when the URL is shared in texts, social, etc. -->
@@ -247,6 +248,19 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Q7P4J66E5D');
+    // Count clicks on contact links so inquiries can be traced to a page
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedin.com"]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href');
+      var type = href.indexOf('mailto:') === 0 ? 'email' : (href.indexOf('tel:') === 0 ? 'phone' : 'linkedin');
+      var m = href.match(/subject=([^&]+)/);
+      gtag('event', 'contact_click', {
+        contact_type: type,
+        contact_intent: m ? decodeURIComponent(m[1]) : 'General',
+        page_name: location.pathname
+      });
+    });
   </script>
 </head>
 <body>

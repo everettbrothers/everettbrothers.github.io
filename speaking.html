@@ -9,6 +9,7 @@
   <link rel="manifest" href="site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Speaking — Everett Brothers</title>
+  <link rel="canonical" href="https://everett-brothers.com/speaking.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Libre+Franklin:wght@300;400&display=swap" rel="stylesheet" />
@@ -224,7 +225,30 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Q7P4J66E5D');
+    // Count clicks on contact links so inquiries can be traced to a page
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href^="mailto:"], a[href^="tel:"], a[href*="linkedin.com"]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href');
+      var type = href.indexOf('mailto:') === 0 ? 'email' : (href.indexOf('tel:') === 0 ? 'phone' : 'linkedin');
+      var m = href.match(/subject=([^&]+)/);
+      gtag('event', 'contact_click', {
+        contact_type: type,
+        contact_intent: m ? decodeURIComponent(m[1]) : 'General',
+        page_name: location.pathname
+      });
+    });
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Speaking — Everett Brothers",
+  "url": "https://everett-brothers.com/speaking.html",
+  "isPartOf": { "@type": "WebSite", "name": "Everett Brothers", "url": "https://everett-brothers.com/" },
+  "about": { "@type": "Person", "name": "Everett Brothers", "jobTitle": "Creative Director and Social Strategy Executive", "url": "https://everett-brothers.com/" }
+}
+</script>
 </head>
 <body>
 
@@ -331,6 +355,10 @@
       <div class="stage-row">
         <span class="stage-name">FPRA Communications Summit</span>
         <span class="stage-detail">Keynote Panelist · Aug 2026</span>
+      </div>
+      <div class="stage-row">
+        <span class="stage-name">SCAD De Sole School of Business Innovation</span>
+        <span class="stage-detail">Guest Mentor · Oct 2026</span>
       </div>
     </div>
 
